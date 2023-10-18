@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+<div class="mb-3" style="width:75%;padding-top:20px;padding-left:50px;position:relative;">
+    <label class="form-label" style="color:white">USER INPUT</label>
+    <input type="text" class="form-control" value="{{ user_input }}" readonly>
+</div>
+<div class="mb-3" style="width:75%;padding-top:20px;padding-left:50px;position:relative;">
+    <label class="form-label" style="color:white">PREDICTIVE TEXT</label>
+    <input type="text" class="form-control" name="pt" value="{{ predictive_text }}">
+</div>
+    <a class="btn btn-warning" href="{% url 'application:texttranslate' %}" style="position:absolute;right:250px;top:240px;">Translate</a>
+</form>
+{% endblock %}
